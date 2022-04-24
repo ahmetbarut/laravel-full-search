@@ -1,6 +1,6 @@
 {
-    "name": "ahmetbarut/full-search",
-    "description": "Full search",
+    "name": "ahmetbarut/laravel-full-search",
+    "description": "Allows searching on multiple models. The advantage of this for us; a separate search field is not required for each model.",
     "type": "package",
     "license": "MIT",
     "autoload": {
@@ -14,6 +14,16 @@
             "email": "ahmetbarut588@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
-    "require": {}
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8.0",
+        "laravel/framework": "^8.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "AhmetBarut\\FullSearch\\Providers\\FullSearchServiceProvider"
+            ]
+        }
+    }
 }
