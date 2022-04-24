@@ -1,0 +1,19 @@
+{
+    "name": "ahmetbarut/full-search",
+    "description": "Full search",
+    "type": "package",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AhmetBarut\\FullSearch\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ahmet Barut",
+            "email": "ahmetbarut588@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
