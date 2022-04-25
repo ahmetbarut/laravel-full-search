@@ -2,6 +2,10 @@
 
 Allows searching on multiple models. The advantage of this for us; a separate search field is not required for each model.
 
+<video width="320" height="240" controls>
+  <source src="example.mov" type="video/mp4">
+</video>
+
 ## Features
 
 - Mutli-model search
