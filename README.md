@@ -2,9 +2,7 @@
 
 Allows searching on multiple models. The advantage of this for us; a separate search field is not required for each model.
 
-<video width="320" height="240" controls>
-  <source src="example.mov" type="video/mp4">
-</video>
+[![Example](https://img.youtube.com/vi/ubC-9E6lLPU/0.jpg)](https://www.youtube.com/watch?v=ubC-9E6lLPU)
 
 ## Features
 
