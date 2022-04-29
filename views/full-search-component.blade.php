@@ -21,6 +21,8 @@
     @push('scripts')
         <script>
             (function() {
+                const route = "{{ route('ahmetbarut.full-search') }}";
+                
                 var searchModal = new bootstrap.Modal(document.getElementById('search'), {
                     keyboard: true
                 })

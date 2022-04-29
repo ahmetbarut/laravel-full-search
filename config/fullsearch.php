@@ -6,7 +6,7 @@ return [
     'models' => [
         Model::class => [
             'searchable' => true,
-            'auth' => false, // false or middleware name example: auth => 'auth',
+            'ability' => false,
             'searchable_fields' => [
                 'title',
                 'summary',
@@ -20,5 +20,6 @@ return [
                 'page' => 'news'
             ]
         ],
-    ]
+    ],
+    'route' => 'full-search/results',
 ];

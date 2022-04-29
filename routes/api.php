@@ -2,4 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('test', 'AhmetBarut\FullSearch\Controllers\FullSearchController@results');
+Route::get(
+    config('fullsearch.route'),
+    'AhmetBarut\FullSearch\Controllers\FullSearchController@results'
+)->name('ahmetbarut.full-search');
