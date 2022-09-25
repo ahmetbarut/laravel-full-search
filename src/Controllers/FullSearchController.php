@@ -8,7 +8,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
-class FullSearchController extends Controller
+class FullSearchController
 {
     /**
      * stored full-search config
@@ -71,7 +71,7 @@ class FullSearchController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    protected function results(Request $request): \Illuminate\Http\JsonResponse
+    public function results(Request $request): \Illuminate\Http\JsonResponse
     {
         $key = $request->get('q');
         $models = $this->models();
@@ -97,7 +97,9 @@ class FullSearchController extends Controller
                             $this->results->push([
                                 'title' => $queryResult->{$this->get('response_parameters')['title']},
                                 'url' => $this->parseRoute(
-                                    $this->parseParameters($queryResult->toArray())
+                                    $this->parseParameters(
+                                        $queryResult->toArray()
+                                    )
                                 ),
                                 'page' => $this->get('response_parameters')['page']
                             ]);
@@ -136,7 +138,7 @@ class FullSearchController extends Controller
      */
     protected function parseRoute(array $parameters): string
     {
-        return route($this->get('route')['name'], $parameters);
+        return route($this->get('route')['name'], $this->replaceParameters($parameters));
     }
 
     /**
@@ -147,9 +149,8 @@ class FullSearchController extends Controller
     protected function parseParameters(array $parameters): array
     {
         $routeParameter = $this->get('route')['parameters'];
-
         $matchedParameters = [];
-
+        
         foreach ($routeParameter as $key => $value) {
             $matchedParameters[$key] = $parameters[$value];
         }
@@ -170,5 +171,17 @@ class FullSearchController extends Controller
         }
 
         return Gate::allows($ability);
+    }
+
+    public function replaceParameters(array $parameters): array
+    {
+        $replaceParameters = $this->get('route')['replace_parameters'];
+
+        foreach ($parameters as $key => $value) {
+            $parameters[$replaceParameters[$key]] = $value;
+            unset($parameters[$key]);
+        }
+
+        return $parameters;
     }
 }

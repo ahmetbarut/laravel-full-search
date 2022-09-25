@@ -17,13 +17,22 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=8.0",
-        "laravel/framework": ">=8.0"
+        "laravel/framework": ">=8.0",
+        "phpunit/phpunit": "^9.5"
     },
     "extra": {
         "laravel": {
             "providers": [
                 "AhmetBarut\\FullSearch\\Providers\\FullSearchServiceProvider"
             ]
+        }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^7.7"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "AhmetBarut\\FullSearch\\Tests\\": "tests/"
         }
     }
 }

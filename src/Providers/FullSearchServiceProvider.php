@@ -36,6 +36,6 @@ class FullSearchServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(__DIR__ . '/../../config/fullsearch.php', 'fullsearch');
     }
 }
